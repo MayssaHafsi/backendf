@@ -20,8 +20,10 @@ private Long id ;
 private Date dateProposition ; 
 private String description ;
 private String etat;
+private String type;
+private String entreprise;
 @ManyToOne(fetch = FetchType.EAGER)
-@JoinColumn(name = "cin")
+@JoinColumn(name = "id_demandeur")
 
 private Demandeur demandeur ;
 
@@ -33,6 +35,18 @@ public Long getId() {
 }
 public void setId(Long id) {
 	this.id = id;
+}
+public String getEntreprise() {
+	return entreprise;
+}
+public void setEntreprise(String entreprise) {
+	this.entreprise = entreprise;
+}
+public String getType() {
+	return type;
+}
+public void setType(String type) {
+	this.type = type;
 }
 public Date getDateProposition() {
 	return dateProposition;

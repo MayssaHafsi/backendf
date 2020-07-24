@@ -6,11 +6,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.GeneratedValue;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 public class Demandeur {
 	@Id
+	@GeneratedValue
+    private Long id ;
 	private String cin ; 
 	private String nom  ;
 	private String prenom  ; 
@@ -44,7 +47,15 @@ public class Demandeur {
 		return cin;
 	}
 	public void setCin(String cin) {
+		
 		this.cin = cin;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		
+		this.id = id;
 	}
 	public String getAdresse() {
 		return adresse;

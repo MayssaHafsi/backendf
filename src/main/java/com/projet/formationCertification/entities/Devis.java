@@ -21,7 +21,7 @@ public class Devis{
     private int nb_participants;
     private String entreprise;
 	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cin")
+    @JoinColumn(name = "id_demandeur")
 
     private Demandeur demandeur ;
 

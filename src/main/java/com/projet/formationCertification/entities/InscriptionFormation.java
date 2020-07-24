@@ -19,10 +19,10 @@ private String etat ;
 @Temporal(TemporalType.DATE)
 private Date dateInscription ; 
 //@JsonBackReference
-	 @ManyToOne(fetch = FetchType.EAGER )
+ @ManyToOne(fetch = FetchType.EAGER )
 private Formation formationNC ; 
 	//@JsonBackReference
-		 @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+ @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 private Demandeur demandeur ;
 public Long getId() {
 	return id;
