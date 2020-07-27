@@ -1,5 +1,6 @@
 package com.projet.formationCertification.dao;
 
+import java.text.Normalizer.Form;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -20,6 +21,10 @@ public interface FormateurRepository extends JpaRepository<Formateur, String> {
 	@Query("SELECT u FROM Formateur u WHERE u.cin = :status")
 	Formateur find(
 	  @Param("status") String cin);
+
+	  @Query("SELECT u FROM Formateur u WHERE u.email = :status")
+	Formateur find1(
+	  @Param("status") String email);
 	
 	@Query("SELECT u FROM Formateur u WHERE u.cin like :status")
 Page<Formateur> findPageFormateur(

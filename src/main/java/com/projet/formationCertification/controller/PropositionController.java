@@ -36,10 +36,10 @@ public List<Proposition> getAll()
 	return pfm.findAll() ; 
 }
 
-@RequestMapping(value="/addProposition" , method=RequestMethod.POST)	
-public Proposition save(@RequestBody Proposition p)
+@RequestMapping(value="/addproposition" , method=RequestMethod.POST)	
+public Proposition save(@RequestBody Proposition p)throws Exception
 {	 
-	return pfm.save(p) ; 
+	return pfm.saveAndFlush(p) ; 
 }
 
 @RequestMapping(value="/confirmeproposition/{id}" , method=RequestMethod.GET)

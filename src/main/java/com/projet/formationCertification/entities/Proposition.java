@@ -9,20 +9,23 @@ import javax.persistence.Id;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.*;
 
 
 @Entity
 
 public class Proposition {
-	@Id
-	@GeneratedValue
+@Id
+@GeneratedValue
 private Long id ; 
 private Date dateProposition ; 
 private String description ;
 private String etat;
 private String type;
 private String entreprise;
-@ManyToOne(fetch = FetchType.EAGER)
+
+@ManyToOne(fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
 @JoinColumn(name = "id_demandeur")
 
 private Demandeur demandeur ;

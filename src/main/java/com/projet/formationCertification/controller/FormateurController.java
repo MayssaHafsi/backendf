@@ -35,7 +35,7 @@ public class FormateurController  {
 	@RequestMapping(value="/addFormateur" , method=RequestMethod.POST)
 	public Formateur saveFormateur(@RequestBody Formateur f) throws Exception
 	{
-	f.setEtat("disponible");
+	
 		return	fr.save(f) ;
 	}
 	@GetMapping(value="/pagerFormateur")
@@ -78,6 +78,11 @@ public class FormateurController  {
 	public Formateur findFormateurParCin(@PathVariable String cin )
 	{
 		return  fr.find(cin); 
+	}
+	@RequestMapping(value="/chercherFormateur1/{email}" , method=RequestMethod.GET)
+	public Formateur findFormateurParEmail(@PathVariable String email )
+	{
+		return  fr.find1(email); 
 	}
 
 }

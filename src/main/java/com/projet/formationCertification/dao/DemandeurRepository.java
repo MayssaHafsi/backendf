@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import com.projet.formationCertification.entities.Demandeur;
 
 
-public interface DemandeurRepository extends JpaRepository<Demandeur, String> {
+public interface DemandeurRepository extends JpaRepository<Demandeur, Long> {
 	@Query("SELECT u FROM Demandeur u WHERE u.cin = :status")
 	Demandeur find(
 	  @Param("status") String cin);

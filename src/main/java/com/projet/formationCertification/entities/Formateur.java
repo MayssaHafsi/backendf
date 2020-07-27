@@ -6,18 +6,22 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.GeneratedValue;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 public class Formateur {
-	@Id
-	
+@Id
+
+private String email ; 
 private String cin ; 
 private String nom  ; 
 private String prenom ; 
-private String email ; 
+
 private String numeroTelephone ; 
 private String etat ;
+private String comment;
+private String adresse;
 @JsonBackReference(value="formateur")
 @OneToMany(mappedBy="formateur")
 private Collection<FormationFormateur> formationformateur ; 
@@ -28,6 +32,20 @@ public String getEtat() {
 public void setEtat(String etat) {
 	this.etat = etat;
 }
+public String getAdresse() {
+	return adresse;
+}
+public void setAdresse(String adresse) {
+	this.adresse = adresse;
+}
+public String getComment() {
+	return comment;
+}
+public void setComment(String comment) {
+	this.comment = comment;
+}
+
+	
 /*
 @ManyToMany(mappedBy = "formateurs")
 private Collection<Formation> formations ;

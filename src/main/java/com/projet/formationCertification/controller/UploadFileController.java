@@ -9,27 +9,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.projet.formationCertification.dao.CoursRepository;
-import com.projet.formationCertification.dao.FormationRepository;
-import com.projet.formationCertification.entities.Cours;
-import com.projet.formationCertification.entities.Domaine;
+import com.projet.formationCertification.dao.FichierRepository;
+import com.projet.formationCertification.dao.FormateurRepository;
+import com.projet.formationCertification.entities.Fichier;
+import com.projet.formationCertification.entities.Formateur;
 
 @RestController
 @CrossOrigin
 public class UploadFileController {
 	  @Autowired
-	  CoursRepository fileRepository;
+	  FichierRepository fileRepository;
 	 
 	  @Autowired
-	FormationRepository ic ;
+	FormateurRepository ic ;
 	    /*
 	     * MultipartFile Upload
 	     */
-	    @PostMapping("/api/file/upload/{id}")
-	    public String uploadMultipartFile(@RequestParam("file") MultipartFile file,@PathVariable Long id) {
+	    @PostMapping("/api1/file1/upload1/{id}")
+	    public String uploadMultipartFile(@RequestParam("file") MultipartFile file,@PathVariable String id) {
 	      try {
-	 Cours filemode=new Cours(); 
-	filemode.setFormationCours(ic.find(id));
+	 Fichier filemode=new Fichier(); 
+	filemode.setFormateurfichier(ic.find1(id));
 	 filemode.setMimetype(file.getContentType());
 	 filemode.setName(file.getOriginalFilename());
 	 filemode.setPic(file.getBytes());
@@ -42,17 +42,5 @@ public class UploadFileController {
 	    }    
 	    }
 	    
-	    @DeleteMapping(value="/api/file/delete/{id}")
-	    public boolean delete(@PathVariable Long id)
-	    {
-	    	Cours d = fileRepository.find(id);
-	    	if (d!=null)
-	    	{
-	    fileRepository.delete(d);
-	    return true ;
-	    }
-	    	else {
-	    		return false ; 
-	    	}
-	    }
+	    
 }
